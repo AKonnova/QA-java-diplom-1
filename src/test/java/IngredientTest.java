@@ -6,7 +6,10 @@ import static org.junit.Assert.assertEquals;
 import static praktikum.IngredientType.SAUCE;
 
 public class IngredientTest {
+
+    private static final float DELTA = 0.0f;
     private Ingredient ingredient;
+
     @Before
     public void createIngredient(){
         ingredient = new Ingredient(SAUCE, "Кисло-сладкий", 49.99f);
@@ -14,17 +17,16 @@ public class IngredientTest {
 
     @Test
     public void ingredientGetTypeTest() {
-        assertEquals(ingredient.getType(), SAUCE);
+        assertEquals(SAUCE, ingredient.getType());
     }
 
     @Test
     public void ingredientGetNameTest() {
-        assertEquals(ingredient.getName(), "Кисло-сладкий");
+        assertEquals("Кисло-сладкий", ingredient.getName());
     }
 
     @Test
     public void ingredientGetPriceTest() {
-        assertEquals(ingredient.getPrice(), 49.99f, 0);
+        assertEquals(49.99f, ingredient.getPrice(), DELTA);
     }
-
 }

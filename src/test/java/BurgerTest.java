@@ -19,6 +19,8 @@ import static praktikum.IngredientType.SAUCE;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
 
+    private static final float DELTA = 0.0f;
+
     @InjectMocks
     private Burger burger;
     @Mock
@@ -53,7 +55,7 @@ public class BurgerTest {
 
         float actualValue = burger.getPrice();
 
-        Assert.assertEquals(actualValue, expectedValue, 0);
+        Assert.assertEquals(expectedValue, actualValue, DELTA);
     }
 
     @Test
@@ -68,8 +70,8 @@ public class BurgerTest {
         String expectedValueBunName = "Пшеничная";
         String actualValueBunName = bun.getName();
 
-        Assert.assertEquals(actualValueBunPrice, expectedValueBunPrice, 0);
-        Assert.assertEquals(actualValueBunName, expectedValueBunName);
+        Assert.assertEquals(expectedValueBunPrice, actualValueBunPrice, DELTA);
+        Assert.assertEquals(expectedValueBunName, actualValueBunName);
     }
 
     @Test
@@ -83,7 +85,7 @@ public class BurgerTest {
 
         int expectedValue = initialSizeOfIngridients + 1;
 
-        Assert.assertEquals(actualValue, expectedValue);
+        Assert.assertEquals(expectedValue, actualValue);
     }
 
     @Test
@@ -96,7 +98,7 @@ public class BurgerTest {
         int actualValue = ingredients.size();
         int expectedValue = initialSizeOfIngridients - 1;
 
-        Assert.assertEquals(actualValue, expectedValue);
+        Assert.assertEquals(expectedValue, actualValue);
     }
 
     @Test
